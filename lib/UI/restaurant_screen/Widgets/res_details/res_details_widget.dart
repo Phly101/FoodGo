@@ -22,6 +22,30 @@ class ResDetailsWidget extends StatelessWidget {
   Widget build(final BuildContext context) {
     return Column(
       children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: '$resName\n\n',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                  ),
+                ),
+
+                TextSpan(
+                  text: resDetails,
+                  style: const TextStyle(fontSize: 15, color: AppColors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 15,),
+
         Row(
           children: [
             const Icon(
@@ -60,29 +84,6 @@ class ResDetailsWidget extends StatelessWidget {
             const SizedBox(width: 4.0),
             CommonText(text: time, fontWeight: FontWeight.w600, fontSize: 15),
           ],
-        ),
-        const SizedBox(height: 15,),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: '$resName\n\n',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54,
-                  ),
-                ),
-
-                TextSpan(
-                  text: resDetails,
-                  style: const TextStyle(fontSize: 15, color: AppColors.black),
-                ),
-              ],
-            ),
-          ),
         ),
       ],
     );

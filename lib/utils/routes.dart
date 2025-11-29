@@ -5,4 +5,5 @@ class AppRoutes {
   static const String payment = '/payment';
   static const String splash = '/splash';
   static const String restaurant = '/restaurant';
+  static const String detailsScreen = '/Details';
 }

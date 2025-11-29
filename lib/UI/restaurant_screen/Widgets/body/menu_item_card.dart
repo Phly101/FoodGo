@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_go/Models/resMenuModel/menu_item_model.dart';
+import 'package:food_go/Models/resModel/body_model.dart';
+import 'package:food_go/blocs/cart/cart_bloc.dart';
 import 'package:food_go/common/common_text.dart';
 import 'package:food_go/utils/app_colors.dart';
+import 'package:food_go/utils/routes.dart';
 
 class MenuItemCard extends StatelessWidget {
   final MenuItemModel item;
-
-  const MenuItemCard({super.key, required this.item});
+  final BodyModel resItem;
+  const MenuItemCard({super.key, required this.item, required this.resItem});
 
   @override
   Widget build(final BuildContext context) {
     return InkWell(
       onTap: () {
-        //Todo: Navigate to Menu item details screen
+        Navigator.pushNamed(context, AppRoutes.detailsScreen,arguments: {
+          'item':item,
+          'resItem': resItem,
+
+        });
       },
       child: Container(
 
@@ -74,7 +82,14 @@ class MenuItemCard extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
-                      //Todo: activate the cart bloc
+                      context.read<CartBloc>().add(CartAddItem(item));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('${item.title} added to cart'),
+                          duration: const Duration(seconds: 2),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),

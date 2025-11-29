@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CommonText extends StatelessWidget {
-
   final String text;
-
 
   final Color color;
   final FontWeight fontWeight;
   final double fontSize;
   final TextAlign? textAlign;
+  final int? maxlines;
+  final TextOverflow? overflow;
 
   const CommonText({
     super.key,
@@ -17,6 +17,8 @@ class CommonText extends StatelessWidget {
     this.fontWeight = FontWeight.normal,
     this.fontSize = 14.0,
     this.textAlign,
+    this.maxlines,
+    this.overflow,
   });
 
   @override
@@ -28,8 +30,8 @@ class CommonText extends StatelessWidget {
         color: color,
         fontWeight: fontWeight,
         fontSize: fontSize,
-
       ),
+      maxLines: maxlines,
     );
   }
 }

@@ -39,7 +39,11 @@ class AppColors {
   /// Shimmer Container Color (98A8B8) - Light grey/blue for loading placeholders.
   static const Color shimmerContainer = Color(0xFF98A8B8);
   static const Color cartItemColor = Color(0xff2A2A39);
-
+  static const Color appBar = Color(0xFFFF9800); // Orange
+  static const Color secondaryBackground = Color(0xFF2E2E2E);
+  static const Color textLight = Colors.white;
+  static const Color textDark = Colors.black87;
+  static const Color hintText = Colors.grey;
   // --- Action Colors ---
 
   /// Done/Success Button Color (059C6A) - Green for confirmation/success actions.

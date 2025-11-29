@@ -26,7 +26,6 @@ class _ResScreenState extends State<ResScreen> {
 
   @override
   Widget build(final BuildContext context) {
-
     return BlocListener<ResBloc, ResState>(
       listener: (final context, final state) {
         if (state is RestaurantDetailError) {
@@ -75,6 +74,7 @@ class _ResScreenState extends State<ResScreen> {
                   ResDetailsBodyWidget(
                     allRestaurantItems: menuItems,
                     selectedCategory: _selectedcategory,
+                    resItem: data,
                   ),
                 ],
               );

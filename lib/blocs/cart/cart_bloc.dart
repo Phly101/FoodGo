@@ -40,26 +40,33 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   void _onAddItem(final CartAddItem event, final Emitter<CartState> emit) {
     emit(CartLoading());
+
     final tempCartItem = CartItemModel(
       item: event.menuItem,
-      quantity: 1,
+      quantity: event.quantity,
       selectedSize: event.selectedSize,
     );
+
     final uniqueId = tempCartItem.uniqueId;
+
     final index = _cartItems.indexWhere(
-      (final item) => item.uniqueId == uniqueId,
+          (final item) => item.uniqueId == uniqueId,
     );
+
     if (index != -1) {
+
       final existingItem = _cartItems[index];
       _cartItems[index] = existingItem.copyWith(
-        quantity: existingItem.quantity + 1,
+        quantity: existingItem.quantity + event.quantity,
       );
     } else {
+
       _cartItems.add(tempCartItem);
     }
 
     _emitUpdatedCartState(emit);
   }
+
 
   void _onSubtractItem(
     final CartSubtractItem event,

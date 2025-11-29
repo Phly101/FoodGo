@@ -30,6 +30,7 @@ class _QuantityCounterState extends State<_QuantityCounter> {
 
     setState(() {
       _totalPrice = widget.itemModel.price * _quantity;
+
     });
   }
 
@@ -83,7 +84,7 @@ class _QuantityCounterState extends State<_QuantityCounter> {
 
                   const SizedBox(width: 16),
 
-                  /// Quantity Display
+
                   Text(
                     _quantity.toString(),
                     style: const TextStyle(
@@ -114,7 +115,7 @@ class _QuantityCounterState extends State<_QuantityCounter> {
         GestureDetector(
           onTap: () {
 
-            context.read<CartBloc>().add(CartAddItem(widget.itemModel));
+            context.read<CartBloc>().add(CartAddItem(widget.itemModel,   quantity: _quantity,));
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

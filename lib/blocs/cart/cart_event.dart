@@ -8,8 +8,9 @@ sealed class CartEvent extends Equatable {
 
 final class CartAddItem extends CartEvent {
   final MenuItemModel menuItem;
+  final int quantity;
   final String? selectedSize;
-  const CartAddItem(this.menuItem, {this.selectedSize});
+  const CartAddItem(this.menuItem, {this.selectedSize, this.quantity=1, });
 
 }
 
